@@ -35,7 +35,7 @@ useEffect(() => {
       </div>
       <table class="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
           <thead>
-            <th colspan='4' className = "shadow-lg border-4 shadow-grey-500/50 border-slate-500 font-mono text-center text-3xl bg-gray-100">
+            <th colspan = '4' className = {`text-3xl border-4 border-slate-500`}>
               EM ATENDIMENTO
             </th>
           </thead>
@@ -45,7 +45,7 @@ useEffect(() => {
                 client.map( (item, index) => {
                   if(index == 0) {
                     return (
-                      <tr className = {`${index == 0 && "mb-4"}`}>
+                      <tr className = {``}>
                         <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
                           {item.name}
                         </td>
