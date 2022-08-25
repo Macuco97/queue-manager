@@ -9,7 +9,7 @@ const [client, setClient] = useState()
 
 const deleteClient = id => {
   const options = {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: id})}
-  fetch('http://127.0.0.1:3000/api/database', options)
+  fetch(`api/database`, options)
     .then(response => response.json())
     .then(response => setClient(response))
     .catch(err => console.error(err));
@@ -17,7 +17,7 @@ const deleteClient = id => {
 
 useEffect(() => {
   const options = {method: 'GET', headers: {'Content-Type': 'application/json'}};
-  fetch('http://127.0.0.1:3000/api/database', options)
+  fetch('api/database', options)
     .then(response => response.json())
     .then(response => setClient(response))
     .catch(err => console.error(err));
@@ -35,9 +35,11 @@ useEffect(() => {
       </div>
       <table class="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
           <thead>
-            <th colspan = '4' className = {`text-3xl border-4 border-slate-500`}>
-              EM ATENDIMENTO
-            </th>
+           <tr>
+              <th colspan = '4' className = {`border-4 border-slate-400 text-3xl`}>
+                EM ATENDIMENTO
+              </th>
+            </tr>
           </thead>
           <tbody>
               {
@@ -75,7 +77,15 @@ useEffect(() => {
               }
           </tbody>
       </table>
+      <hr className = {`border-slate-500 border-dotted border-4 mx-4`}/>
       <table class="border-separate mx-auto mt-16 border-spacing-2 w-9/12">
+        <thead>
+           <tr>
+              <th colspan = '4' className = {`border-4 border-slate-400 text-3xl`}>
+                EM ESPERA
+              </th>
+            </tr>
+          </thead>
           <tbody>
               {
                 client &&
