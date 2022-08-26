@@ -7,6 +7,14 @@ export default function Home() {
 
 const [client, setClient] = useState()
 const [newClient, setNewClient] = useState()
+const [login, setLogin] = useState()
+const [blockScreen, setBlockScreen] = useState()
+
+
+const changeNewClientMenu = () => {
+  setNewClient(!newClient)
+  setBlockScreen(!blockScreen)
+}
 
 const deleteClient = id => {
   const options = {method: 'DELETE', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id: id})}
@@ -42,7 +50,9 @@ useEffect(() => {
 
   return (
     <>
-    <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
+    {
+      newClient && 
+      <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
         <form onSubmit = {e => createClient(e) } className = {`relative w-1/3 h-1/6 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
             <label id = "PatientNameLabel" className = {``}>Novo Paciente </label>
             <input id = 'PatientNameInput' className = {` pl-1 w-5/6`}/>
@@ -51,25 +61,31 @@ useEffect(() => {
             <button className = 'justify-self-end bg-slate-300 mt-2 w-16 rounded-full '>
               Criar
             </button>
-            <svg className="absolute top-1 right-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <svg onClick = {() => changeNewClientMenu()} className="absolute top-1 right-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m-15 0l15 15" />
             </svg>
         </form>
       </div>
-    <div className = "flex w-screen h-screen fixed bg-black opacity-20">
-    </div>
+    }
+    {
+      blockScreen &&  
+      <div className = "flex w-screen h-screen fixed bg-black opacity-75">
+      </div>
+    }
       <div className = {`flex flex-col w-screen h-screen mx-0`}>
+
         <div className = "flex flex-row h-20 bg-gradient-to-r from-gray-100 to-gray-200 ">
           <div className = "text-2xl self-center align-middle basis-1/2 m-5">
             Queue Manager
           </div>
-          <button className = "bg-gray-300 hover:bg-gray-400 basis-1/4 h-9/12 m-3 rounded-full">
+          <button onClick = {() => changeNewClientMenu()} className = "bg-gray-300 hover:bg-gray-400 basis-1/4 h-9/12 m-3 rounded-full">
               Adicionar Cliente
           </button>
           <button className = "bg-gray-300 hover:bg-gray-400 basis-1/4 h-9/12 m-3 rounded-full">
               Login
           </button>
         </div>
+
         <table class="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
             <thead>
             <tr>
@@ -86,7 +102,7 @@ useEffect(() => {
                       return (
                         <tr className = {``}>
                           <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
-                            {item.posicao}
+                            {item.position}
                           </td>
                           <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
                             {item.name}
@@ -117,7 +133,9 @@ useEffect(() => {
                 }
             </tbody>
         </table>
+
         <hr className = {`border-slate-500 border-dotted border-4 mx-4`}/>
+
         <table class="border-separate mx-auto mt-16 border-spacing-2 w-9/12">
           <thead>
             <tr>
@@ -166,6 +184,7 @@ useEffect(() => {
                 }
             </tbody>
         </table>
+
       </div>
       
       
