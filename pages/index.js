@@ -35,7 +35,7 @@ const createClient = e => {
   }
   const options = {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)}
   fetch(`api/database`, options)
-    .then(response => response.json())
+    .then(response => response.json(response))
     .then(response => setClient(response))
     .catch(err => console.error(err))
   }
