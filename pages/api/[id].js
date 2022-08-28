@@ -41,21 +41,11 @@ export default async function (req, res){
     await clients.insertOne(body)
     }
   
-
+git
   if(req.method === "DELETE") {
-    const positionsChanged = range(position, positions.length - 1)
     await clients.deleteOne({position: position})
-    if(positionsChanged.length == 1) {
-      await clients.deleteOne({position: position})
-    }
-    else {
-      positionsChanged.map(async i => {
-        if(i != positionsChanged - 1) {
-          await clients.updateOne({position: i + 1}, {$set:{position: i}})
-          await clients.find({position: i + 1})
-        }
-      })
-    }
+    await clients.updateMany({position: {$gt: position}}, {$inc:{position: -1}})
+
   }
 
   const response = await clients.find({}).toArray()
