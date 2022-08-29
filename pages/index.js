@@ -143,10 +143,10 @@ useEffect(() => {
           }
         </div>
 
-        <table class="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
+        <table className="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
             <thead>
             <tr>
-                <th colspan = '4' className = {`border-4 border-slate-400 text-3xl`}>
+                <th colSpan = '4' className = {`border-4 border-slate-400 text-3xl`}>
                   EM ATENDIMENTO
                 </th>
               </tr>
@@ -158,7 +158,7 @@ useEffect(() => {
                     if(index == 0) {
                       return (
                         <tr className = {``}>
-                          <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
+                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
                             {item.name}
                           </td>
                           {
@@ -183,7 +183,7 @@ useEffect(() => {
 
         <hr className = {`border-slate-500 border-dotted border-4 mx-4`}/>
 
-        <table class="border-separate mx-auto mt-16 border-spacing-2 w-9/12">
+        <table className="border-separate mx-auto mt-16 border-spacing-2 w-9/12">
           <thead>
             <tr>
                 <th colSpan = '5' className = {`border-4 border-slate-400 text-3xl`}>
@@ -198,10 +198,10 @@ useEffect(() => {
                     if (index != 0) {
                       return (
                         <tr className>
-                          <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100 w-8">
+                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100 w-8">
                             {item.position}
                           </td>
-                          <td class="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100">
+                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100">
                             {item.name}
                           </td>
                           {
