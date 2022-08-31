@@ -11,6 +11,7 @@ const [login, setLogin] = useState()
 const [blockScreen, setBlockScreen] = useState()
 const [loginMenu, setLoginMenu] = useState()
 const [loading, setLoading] = useState()
+const[IP, setIP] = useState(process.env.IP)
 
 const changeOrder = (position, action) => {
   setLoading(true)
@@ -23,7 +24,7 @@ const changeOrder = (position, action) => {
     })
   }
 
-  fetch('http://127.0.0.1:3000/api/database', options)
+  fetch('api/database', options)
     .then(response => response.json())
     .then(response => setClient(response))
     .then(response => setLoading(false))
@@ -66,7 +67,7 @@ const checkLogin = e => {
     })
   };
   
-  fetch('http://127.0.0.1:3000/api/auth', options)
+  fetch('api/auth', options)
     .then(response => response.json())
     .then(response => loginAlert(response))
     .then(response => setLoading(false))
@@ -171,7 +172,7 @@ useEffect(() => {
             </button>
             :
             <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3 rounded-full justify-self-end grow ${loading && `opacity-50`}`}>
-              Login
+              Login {IP}
             </button>
           }
         </div>
