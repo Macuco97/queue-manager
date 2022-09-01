@@ -1,10 +1,4 @@
-import { ConstructionOutlined, UpdateOutlined } from "@mui/icons-material";
-import { ObjectID } from "bson";
-import { withTheme } from "styled-components";
-
 const { MongoClient } = require("mongodb");
-
-
 
 export default async function (req, res){
   const client = new MongoClient(process.env.mongodbURL)
@@ -12,6 +6,7 @@ export default async function (req, res){
   const clients = await database.collection('client')
   const { body, method } = req
   const clientList = await clients.find({}).toArray()
+  console.log('After clientlist')
   const positions = []
   const range = (start, end, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i)
@@ -24,6 +19,7 @@ export default async function (req, res){
     return Math.max(a, b);
   }, -Infinity)
 
+  console.log('chegou aqui')
   if(req.method === "POST") {
       if(clientList.length == [].length) {
         body.position = 0
