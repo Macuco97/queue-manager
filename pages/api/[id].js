@@ -6,7 +6,6 @@ export default async function (req, res){
   const clients = await database.collection('client')
   const { body, method } = req
   const clientList = await clients.find({}).toArray()
-  console.log('After clientlist')
   const positions = []
   const range = (start, end, length = end - start + 1) =>
   Array.from({ length }, (_, i) => start + i)
