@@ -117,11 +117,11 @@ useEffect(() => {
     {
       newClient && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
-        <form onSubmit = {e => createClient(e) } className = {`relative w-1/3 h-1/6 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
+        <form onSubmit = {e => createClient(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
             <label id = "PatientNameLabel" className = {``}>Novo Paciente </label>
-            <input id = 'PatientNameInput' className = {` pl-1 w-5/6`}/>
+            <input id = 'PatientNameInput' className = {` pl-1 w-44`}/>
             <label id = 'PatientPhoneLabel' className = {``}>Telefone </label>
-            <input id = 'PatientPhoneInput' className = {` pl-1 w-5/6`}/>
+            <input id = 'PatientPhoneInput' className = {` pl-1 w-44`}/>
             <button disabled = {loading} className = {`justify-self-end bg-slate-300 mt-2 w-16 rounded-full ${loading && "opacity-50"}`}>
               Criar
             </button>
@@ -134,11 +134,11 @@ useEffect(() => {
     
     {loginMenu && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
-        <form onSubmit = {e => checkLogin(e) } className = {`relative w-1/3 h-1/6 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
+        <form onSubmit = {e => checkLogin(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 place-content-center`}>
             <label className = {``}>User </label>
-            <input id = 'user' className = {` pl-1 w-5/6`}/>
+            <input id = 'user' className = {`  w-44`}/>
             <label className = {``}>Password</label>
-            <input id = 'password' className = {` pl-1 w-5/6`}/>
+            <input id = 'password' className = {` w-44`}/>
             <button disabled = {loading} className = {`disabled justify-self-end bg-slate-300 mt-2 w-16 rounded-full ${loading && "opacity-50"}`}>
               Login In
             </button>
@@ -163,7 +163,7 @@ useEffect(() => {
               <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
           </svg>
           }
-          <div className = "text-2xl self-center align-middle basis-4/5 m-5">
+          <div className = "text-2xl font-serif self-center align-middle basis-1/2 m-5">
             Queue Manager {loading}
           </div>
           {login ? 
@@ -171,8 +171,8 @@ useEffect(() => {
                Adicionar Cliente
             </button>
             :
-            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3 rounded-full justify-self-end grow ${loading && `opacity-50`}`}>
-              Login {IP}
+            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3  rounded-full justify-self-end grow ${loading && `opacity-50`}`}>
+              Login
             </button>
           }
         </div>
@@ -180,7 +180,7 @@ useEffect(() => {
         <table className="border-separate mx-auto mt-16 border-spacing-y-5 border-spacing-x-2 w-9/12">
             <thead>
             <tr>
-                <th colSpan = '4' className = {`border-4 border-slate-400 text-3xl`}>
+                <th colSpan = '4' className = {`text-2xl font-serif shadow-md bg-slate-100`}>
                   EM ATENDIMENTO
                 </th>
               </tr>
@@ -191,13 +191,13 @@ useEffect(() => {
                   client.map( (item, index) => {
                     if(index == 0) {
                       return (
-                        <tr className = {``}>
-                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-lime-300">
+                        <tr className = {`font-serif text-3xl text-center shadow-md divide-x divide-slate-400`}>
+                          <td className="">
                             {item.name}
                           </td>
                           {
                             login && 
-                            <td className = "shadow-lg shadow-grey-500/50 border-b-4 border-slate-500 font-mono text-center bg-gray-100 w-10 h-10"
+                            <td className = "border-r-1 border-grey-100"
                              onClick = {() => deleteClient(item.position)}    
                              >
                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-auto">
@@ -215,12 +215,12 @@ useEffect(() => {
             </tbody>
         </table>
 
-        <hr className = {`border-slate-500 border-dotted border-4 mx-4`}/>
+        <hr className = {`border-slate-300 border-solid border-1 mx-4`}/>
 
-        <table className="border-separate mx-auto mt-16 border-spacing-2 w-9/12">
+        <table className="border-separate  mt-6 gap-3 border-separate border-spacing-y-2">
           <thead>
             <tr>
-                <th colSpan = '5' className = {`border-4 border-slate-400 text-3xl`}>
+                <th colSpan = '5' className = {`text-2xl font-serif shadow-md bg-slate-100`}>
                   EM ESPERA
                 </th>
               </tr>
@@ -231,37 +231,37 @@ useEffect(() => {
                   client.map( (item, index) => {
                     if (index != 0) {
                       return (
-                        <tr className>
-                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100 w-8">
+                        <tr className= {`divide-x divide-slate-400`}>
+                          <td className={`font-serif bg-slate-200 text-1xl text-center shadow-md divide-x divide-slate-400`}>
                             {item.position}
                           </td>
-                          <td className="shadow-lg shadow-grey-500/50 border-b-4 border-r-4 border-slate-500 font-mono text-center text-3xl bg-gray-100">
+                          <td className="font-serif text-1xl text-center shadow-md divide-x">
                             {item.name}
                           </td>
                           {
                           login && 
                           <>
-                            <td className="shadow-lg shadow-grey-500/50 border-b-4 border-slate-500 font-mono text-center bg-gray-100 w-10 h-10"
+                            <td className="font-serif text-3xl text-center shadow-md divide-x divide-slate-400"
                                 onClick = {() => changeOrder(item.position, 'goUp')}
                             >
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-auto">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mx-auto">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18" />
                               </svg>
                             </td>
                            { 
                            (index + 1 != client.length) && 
-                            <td className="shadow-lg shadow-grey-500/50 border-b-4 border-slate-500 font-mono text-center bg-gray-100 w-10 h-10"
+                            <td className="font-serif text-3xl text-center shadow-md divide-x divide-slate-400"
                                 onClick = {() => changeOrder(item.position, 'goDown')}
                             >
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-auto">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mx-auto">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                               </svg>
                             </td>
                             }
-                            <td className = "shadow-lg shadow-grey-500/50 border-b-4 border-slate-500 font-mono text-center bg-gray-100 w-10 h-10"
+                            <td className = "font-serif text-3xl text-center shadow-md divide-x divide-slate-400"
                                 onClick = {() => deleteClient(item.position)}    
                             >
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mx-auto">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mx-auto">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                               </svg>
                             </td>
