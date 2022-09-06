@@ -117,7 +117,11 @@ useEffect(() => {
     {
       newClient && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
+<<<<<<< HEAD
         <form onSubmit = {e => createClient(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
+=======
+        <form onSubmit = {e => createClient(e) } className = {`relative w-64xx h-1/6 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
+>>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
             <label id = "PatientNameLabel" className = {``}>Novo Paciente </label>
             <input id = 'PatientNameInput' className = {` pl-1 w-44`}/>
             <label id = 'PatientPhoneLabel' className = {``}>Telefone </label>
@@ -134,7 +138,11 @@ useEffect(() => {
     
     {loginMenu && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
+<<<<<<< HEAD
         <form onSubmit = {e => checkLogin(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 place-content-center`}>
+=======
+        <form onSubmit = {e => checkLogin(e) } className = {`relative md:w-1/3 w-4/5 h-2/12 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
+>>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
             <label className = {``}>User </label>
             <input id = 'user' className = {`  w-44`}/>
             <label className = {``}>Password</label>
@@ -171,8 +179,13 @@ useEffect(() => {
                Adicionar Cliente
             </button>
             :
+<<<<<<< HEAD
             <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3  rounded-full justify-self-end grow ${loading && `opacity-50`}`}>
               Login
+=======
+            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`place-self-center mr-4 bg-slate-300 hover:bg-slate-400 text-black font-bold h-10 px-4 border-b-4 border-slate-600 hover:border-slate-500 rounded ${loading && `opacity-50`}`}>
+              Login {IP}
+>>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
             </button>
           }
         </div>
