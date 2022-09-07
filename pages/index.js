@@ -117,16 +117,12 @@ useEffect(() => {
     {
       newClient && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
-<<<<<<< HEAD
-        <form onSubmit = {e => createClient(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
-=======
-        <form onSubmit = {e => createClient(e) } className = {`relative w-64xx h-1/6 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
->>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
+        <form onSubmit = {e => createClient(e) } className = {`relative w-96 h-40 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 place-content-center`}>
             <label id = "PatientNameLabel" className = {``}>Novo Paciente </label>
             <input id = 'PatientNameInput' className = {` pl-1 w-44`}/>
             <label id = 'PatientPhoneLabel' className = {``}>Telefone </label>
             <input id = 'PatientPhoneInput' className = {` pl-1 w-44`}/>
-            <button disabled = {loading} className = {`justify-self-end bg-slate-300 mt-2 w-16 rounded-full ${loading && "opacity-50"}`}>
+            <button disabled = {loading} className = {`disabled justify-self-end bg-slate-300 shadow-md mt-2 w-16 ${loading && "opacity-50"}`}>
               Criar
             </button>
             <svg onClick = {() => changeNewClientMenu()} className="absolute top-1 right-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -138,16 +134,12 @@ useEffect(() => {
     
     {loginMenu && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
-<<<<<<< HEAD
-        <form onSubmit = {e => checkLogin(e) } className = {`relative w-1/2 h-48 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 place-content-center`}>
-=======
-        <form onSubmit = {e => checkLogin(e) } className = {`relative md:w-1/3 w-4/5 h-2/12 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 p-2 place-content-center`}>
->>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
+        <form onSubmit = {e => checkLogin(e) } className = {`relative w-96 h-40 flex flex-col flex-wrap gap-x-2 border-2 border-double bg-slate-400 place-content-center`}>
             <label className = {``}>User </label>
-            <input id = 'user' className = {`  w-44`}/>
+            <input id = 'user' className = {`w-80`}/>
             <label className = {``}>Password</label>
-            <input id = 'password' className = {` w-44`}/>
-            <button disabled = {loading} className = {`disabled justify-self-end bg-slate-300 mt-2 w-16 rounded-full ${loading && "opacity-50"}`}>
+            <input id = 'password' className = {` w-80`}/>
+            <button disabled = {loading} className = {`disabled justify-self-end bg-slate-300 shadow-md mt-2 w-16 ${loading && "opacity-50"}`}>
               Login In
             </button>
             <svg onClick = {() => changeLoginMenu()} className="absolute top-1 right-1 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -175,17 +167,16 @@ useEffect(() => {
             Queue Manager {loading}
           </div>
           {login ? 
-            <button onClick = {() => changeNewClientMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3 rounded-full justify-self-end grow ${loading && `opacity-50`}`} >
+            <button onClick = {() => changeNewClientMenu()} className = {`self-center hover:bg-gray-400 w-36 h-8 shadow-md ${loading && `opacity-50`}`} >
                Adicionar Cliente
             </button>
             :
-<<<<<<< HEAD
-            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`bg-gray-300 hover:bg-gray-400 h-9/12 m-3  rounded-full justify-self-end grow ${loading && `opacity-50`}`}>
+            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`self-center hover:bg-gray-400 w-36 h-8 shadow-md ${loading && `opacity-50`}`}>
               Login
-=======
-            <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`place-self-center mr-4 bg-slate-300 hover:bg-slate-400 text-black font-bold h-10 px-4 border-b-4 border-slate-600 hover:border-slate-500 rounded ${loading && `opacity-50`}`}>
-              Login {IP}
->>>>>>> 5dd26685f1571cec001cddf47ca35993dbf8c085
+              <div className = {`mt-16 bg-slate-500 sm:bg-green-500 md:bg-blue-500 lg:bg-yellow-500 xl:bg-red-500 2xl:bg-pink-500`}>
+                Midia Query
+              </div>
+
             </button>
           }
         </div>
@@ -230,11 +221,13 @@ useEffect(() => {
 
         <hr className = {`border-slate-300 border-solid border-1 mx-4`}/>
 
-        <table className="border-separate  mt-6 gap-3 border-separate border-spacing-y-2">
+        <table className="border-separate mx-8 mt-6 gap-3 border-separate border-spacing-y-2">
           <thead>
             <tr>
-                <th colSpan = '5' className = {`text-2xl font-serif shadow-md bg-slate-100`}>
-                  EM ESPERA
+                <th colSpan = '5' className = {``}>
+                  <div className = {`text-2xl text-center font-serif shadow-md bg-slate-100 w-44 inline px-5`}>
+                    EM ESPERA
+                  </div>
                 </th>
               </tr>
             </thead>
