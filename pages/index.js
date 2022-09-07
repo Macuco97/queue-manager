@@ -114,6 +114,28 @@ useEffect(() => {
 
   return (
     <>
+     {
+      <>
+        <div className = {`sm:hidden md:hidden lg:hidden xl:hidden 2xl:hidden absolute`}>
+        Mobile
+        </div>
+      <div className = {`hidden sm:visible md:hidden lg:hidden xl:hidden 2xl:invisible`}>
+        sm
+      </div>
+      <div className = {`hidden sm:hidden md:visible lg:hidden xl:hidden 2xl:invisible`}>
+        md
+      </div>
+      <div className = {`hidden sm:hidden md:hidden lg:visible xl:hidden 2xl:invisible`}>
+        lg
+      </div>
+      <div className = {`hidden sm:hidden md:hidden lg:hidden xl:visible 2xl:invisible`}>
+          xl
+        </div>
+        <div className = {`hidden sm:hidden md:hidden lg:hidden xl:hidden 2xl:visible`}>
+          2xl
+        </div>
+      </>
+     }
     {
       newClient && 
       <div className = "flex w-screen h-screen fixed bg-transparent place-content-center place-items-center z-50">
@@ -138,7 +160,7 @@ useEffect(() => {
             <label className = {``}>User </label>
             <input id = 'user' className = {`w-80`}/>
             <label className = {``}>Password</label>
-            <input id = 'password' className = {` w-80`}/>
+            <input id = 'password' className = {`w-80`}/>
             <button disabled = {loading} className = {`disabled justify-self-end bg-slate-300 shadow-md mt-2 w-16 ${loading && "opacity-50"}`}>
               Login In
             </button>
@@ -173,10 +195,6 @@ useEffect(() => {
             :
             <button disabled = {loading} onClick = {() => changeLoginMenu()} className = {`self-center hover:bg-gray-400 w-36 h-8 shadow-md ${loading && `opacity-50`}`}>
               Login
-              <div className = {`mt-16 bg-slate-500 sm:bg-green-500 md:bg-blue-500 lg:bg-yellow-500 xl:bg-red-500 2xl:bg-pink-500`}>
-                Midia Query
-              </div>
-
             </button>
           }
         </div>
@@ -241,7 +259,7 @@ useEffect(() => {
                           <td className={`font-serif bg-slate-200 text-1xl text-center shadow-md divide-x divide-slate-400`}>
                             {item.position}
                           </td>
-                          <td className="font-serif text-1xl text-center shadow-md divide-x">
+                          <td className="font-serif text-2xl text-center shadow-md divide-x">
                             {item.name}
                           </td>
                           {
